@@ -1,0 +1,43 @@
+{{#each error}}
+<div class="alert alert-warning alert-danger fade show" role="alert">
+  <strong>{{message}}</strong>
+  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+</div>
+{{/each}}
+
+
+<div class="row">
+	<div class="col-md-4 mx-auto">
+		<div class="card">
+			<div class="card-header">
+				<h2>Proceso de registro</h2>
+			</div>
+			<div class="card-body">
+				<form action="/user/registro-g" method="POST">
+					
+					<div class="form-group">
+						<input type="text" class="form-control" name="nombre" placeholder="Nombre. Ej: Mario Bros" value="{{nombre}}">
+					</div>
+					<br>
+					<div class="form-group">
+						<input type="email" class="form-control" name="correo" placeholder="Correo. Ej: luigi1999@gmail.com" value="{{correo}}">
+					</div>
+					<br>
+					<div class="form-group">
+						<input type="text" class="form-control" name="telefono" placeholder="Numero Telf. Ej: 04240000111" value="{{telefono}}">
+					</div>
+					<br>
+					<div class="form-group">
+						<input type="text" class="form-control" name="clave" placeholder="Clave. Ej: toad1029" value="{{clave}}">
+					</div>
+					<br>
+					<div class="form-group">
+						<button type="submit" class="btn btn-primary btn-block">Crear Usuario</button>
+					</div>
+				
+				</form>
+			</div>
+		</div>
+	</div>
+</div>
+

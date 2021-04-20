@@ -1,0 +1,30 @@
+{{#each error}}
+<div class="alert alert-warning alert-danger fade show" role="alert">
+  <strong>{{message}}</strong>
+  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+</div>
+{{/each}}
+
+<div class="col-md-4 mx-auto">
+	<div class="card">
+		<div class="card-header">
+			<h4>Ingresar producto</h4>
+		</div>
+		<div class="card-body">
+			<form action="/products/nuevo" method="POST">
+				<div class="form-group">
+					<input type="text" name="producto" class="form-control" placeholder="Nombre del producto"> 
+					<br>
+					<input type="text" name="cantidad" class="form-control" placeholder="Cantidad.Ej:7">
+					<br>
+					<input type="text" name="precio" class="form-control" placeholder="Precio.Ej:0.00$"> 
+				</div>
+				<div class="form-group">
+					<br>
+					<a href="" class="btn btn-primary">Cancelar</a>
+					<button class="btn btn-primary" type="submit">Guardar</button>
+				</div>
+			</form>
+		</div>
+	</div>
+</div>
