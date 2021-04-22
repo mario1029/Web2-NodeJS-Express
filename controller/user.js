@@ -58,18 +58,20 @@ const guardarRegistro = async(req, res)=>{
 	if(clave.length <= 0){
 		error.push({message:'La clave no puede estar vacia...'});
 	}
+
+	const correoRepetido = await userSchema.findOne({correo: correo});
+
+	if(correoRepetido){
+		error.push({message:'Ese correo ya esta registrado'});
+	}
 	
 	if (error.length > 0) {
 		res.render('registro', {error, nombre, correo, telefono, clave})
 	}else{
-		const correoRepetido = await userSchema.findOne({correo: correo});
-		if(correoRepetido){
-			res.send('Usuario ya existe');
-		}
-		const usuario = new userSchema({nombre, correo, telefono, clave});
-		usuario.clave = await usuario.encryptPass(clave);
-		await usuario.save();
-		res.redirect('/user/inicio-sesion');
+			const usuario = new userSchema({nombre, correo, telefono, clave});
+			usuario.clave = await usuario.encryptPass(clave);
+			await usuario.save();
+			res.redirect('/user/inicio-sesion');
 	}
 
 	

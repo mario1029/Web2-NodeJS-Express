@@ -39,6 +39,6 @@
 
 	socket.on('mensajeGlobal', (data)=>{
 		console.log(data)
-		comentarios.innetHTML += "<p>"+{data.mensaje}+"</p>"
+		comentarios.innetHTML += "<p>"+data.mensaje+"</p>"
 	})
 </script>
